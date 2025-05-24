@@ -106,6 +106,6 @@ BoltDB/JSON – lightweight local storage
 
 ## 🛡️ Roadmap
 - [ ] gRPC server + API
-- [ ]History tracking & alerts
-- [ ]TLS or token auth for gRPC
-- [ ]Web dashboard (optional)
+- [ ] History tracking & alerts
+- [ ] TLS or token auth for gRPC
+- [ ] Web dashboard (optional)
