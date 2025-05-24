@@ -56,3 +56,56 @@ $ netprobe get 192.168.1.2
                       │  Storage DB   │       
                       └───────────────┘
 ```
+## 🏁 Quick Start
+## 🔧 Prerequisites
+- Go 1.20+
+- (Optional) nmap, arp, or ping tools for enhanced detection
+
+## 🚀 Build
+```bash
+git clone https://github.com/yourusername/netprobe.git
+cd netprobe
+go build -o netprobe .
+```
+
+## 🧪 Run
+```bash
+# Run a manual scan
+./netprobe scan
+
+# Start the gRPC server (on port 50051)
+./netprobe serve
+
+# List all discovered devices
+./netprobe list
+
+# Get info on a specific IP
+./netprobe get 192.168.1.2
+```
+
+## 🔌 gRPC API
+Example service definition:
+```proto
+service NetProbe {
+  rpc ListDevices(Empty) returns (DeviceList);
+  rpc GetDevice(DeviceRequest) returns (DeviceDetail);
+  rpc ScanNow(Empty) returns (ScanResult);
+}
+```
+## 📅 Automation (Cron Example)
+```bash
+# Run scan every 30 minutes
+*/30 * * * * /path/to/netprobe scan >> /var/log/netprobe.log
+```
+
+## 📚 Tech Stack
+Go – concurrency, networking, CLI
+gRPC – modern RPC interface
+Bash – scripting, automation, glue logic
+BoltDB/JSON – lightweight local storage
+
+## 🛡️ Roadmap
+- [ ] gRPC server + API
+- [ ]History tracking & alerts
+- [ ]TLS or token auth for gRPC
+- [ ]Web dashboard (optional)
